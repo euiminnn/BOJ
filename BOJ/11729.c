@@ -5,42 +5,52 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: echung <echung@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/25 23:14:37 by echung            #+#    #+#             */
-/*   Updated: 2021/03/25 23:42:45 by echung           ###   ########.fr       */
+/*   Created: 2021/03/26 00:44:33 by echung            #+#    #+#             */
+/*   Updated: 2021/03/26 01:37:40 by echung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
-void	hanoi(int n, int from, int to)
+int count = 0;
+
+void hanoi_count(int n, int from, int els, int to)
 {
-	int times;
-	if (n == 1)
-	{	
-		times = 2;
-		from = 1;
-		to = 2;
-	}
-/*	else
+	if (n != 1)
 	{
-		hanoi(n-1, )
-	}*/
-	printf("%d\n", times);
-	while (times > 1)
-	{
-		printf("from to\n");
-//		hanoi();
-		times--;
+		hanoi_count(n-1, from, to, els);
+		hanoi_count(1, from, els, to);
+		hanoi_count(n-1, els, from, to);
 	}
-	printf("from to");
+	else
+	{
+		count++;
+		return ;
+	}
+}
+
+void hanoi(int n, int from, int els, int to)
+{
+	if (n != 1)
+	{
+		hanoi(n-1, from, to, els);
+		hanoi(1, from, els, to);
+		hanoi(n-1, els, from, to);
+	}
+	else
+	{
+		printf("%d %d\n", from, to);
+		return ;
+	}
 }
 
 int main(void)
 {
 	int n;
-	int from;
-	int to;
 	scanf("%d", &n);
-	hanoi(n, from, to);
-	return (0);
+	hanoi_count(n, 1, 2, 3);
+	printf("count: %d\n", count);
+	hanoi(n, 1, 2, 3);
 }
+
