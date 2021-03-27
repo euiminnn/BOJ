@@ -1,33 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   11729my.c                                          :+:      :+:    :+:   */
+/*   2750.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: echung <echung@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/26 02:31:38 by echung            #+#    #+#             */
-/*   Updated: 2021/03/26 02:44:16 by echung           ###   ########.fr       */
+/*   Created: 2021/03/26 21:16:08 by echung            #+#    #+#             */
+/*   Updated: 2021/03/26 21:59:27 by echung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void hanoi(int n, int from, int temp, int to)
+int arr[1000];
+
+void	em_sort(int n)
 {
-	if (n == 1)
-		printf("%d %d\n", from, to);
-	else
+	int temp;
+	int i;
+	int j;
+
+	i = 1;
+	while (i < n)
 	{
-		hanoi(n-1, from, to, temp);	//n-1개를 왼쪽-> 중간
-		hanoi(1, from, temp, to);
-		hanoi(n-1, temp, from, to);	//n-1개를 중간-> 오른쪽
+		j = 0;
+		while (j < n - i)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
+			}
+			j++;
+		}
+		i++;
+	}
+	i = 0;
+	while (i < n)
+	{
+		printf("%d\n", arr[i]);
+		i++;
 	}
 }
 
-int main(void)
+int		main(void)
 {
 	int n;
+	int i;
+
 	scanf("%d", &n);
-	hanoi(n, 1, 2, 3);
+	i = 0;
+	while (i < n)
+	{
+		scanf("%d", &arr[i]);
+		i++;
+	}
+	em_sort(n);
 	return (0);
 }
