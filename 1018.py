@@ -1,5 +1,8 @@
-N, M = map(int, input().split())
-board = [input() for _ in range(N)]
+N, M = map(int, raw_input().split())
+# input error: python unexpeected EOF while parsing
+# how i solved: use 'raw_input'(which accepts string as an input) instead of 'input'
+use raw_input instead of 
+board = [raw_input() for _ in range(N)]
 
 def em_count(x, y, element) :
     count = 0
@@ -12,7 +15,7 @@ def em_count(x, y, element) :
                     count = count + 1
                 else :
                     if board[i+x][j+y] == element[1] :
-                        countinue
+                        continue
                     count = count + 1
             else :
                 if j % 2 == 0 :
