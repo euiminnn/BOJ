@@ -1,7 +1,7 @@
 N, M = map(int, raw_input().split())
 # input error: python unexpeected EOF while parsing
 # how i solved: use 'raw_input'(which accepts string as an input) instead of 'input'
-use raw_input instead of 
+# but BOJ website takes 'input' as a correct answer
 board = [raw_input() for _ in range(N)]
 
 def em_count(x, y, element) :
