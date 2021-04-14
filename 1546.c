@@ -6,7 +6,7 @@
 /*   By: echung <echung@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 21:43:54 by echung            #+#    #+#             */
-/*   Updated: 2021/04/14 22:23:29 by echung           ###   ########.fr       */
+/*   Updated: 2021/04/14 23:38:17 by echung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -22,7 +22,7 @@ void	em_avg(int* arr, int n, float big)
 		sum = sum + arr[i];
 		i++;
 	}
-	printf("result = %f", sum * 100 / big / n);
+	printf("%f", sum * 100 / big / n);
 }
 
 void	em_big(int* arr, int n)
