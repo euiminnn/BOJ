@@ -13,10 +13,12 @@ while case_ > 0 :
     arr.append(str_)
     case_ -= 1
 
-#for i in range(0, case) :
-#    for l in range(0, leng[i]) :
-#        if cmd[i][l] == 'R' :
-#            arr[0].reverse()
+for i in range(0, case) :
+    for l in range(0, leng[i]) :
+        if cmd[i][l] == 'R' :
+            arr[i].reverse()
+        elif cmd[i][l] == 'D' :
+            arr[i].popleft()
 
 print("cmd=", cmd)
 print("leng=", leng)
