@@ -2,6 +2,7 @@ a, b = map(int, input().split())
 n, m = map(int, input().split())
 start_ = []
 end_ = []
+graph = [[] for _ in range(n+1)]
 
 for _ in range(0, n) :
     s, e = map(int, input().split())
@@ -11,6 +12,9 @@ for _ in range(0, n) :
     start_.append(e)
     end_.append(e)
     end_.append(s)
+
+print("start_=", start_)
+print("graph=", graph)
 
 cnt = 0
 count_ = []
@@ -27,9 +31,9 @@ while i < 2 * n :
         i += 1
 #print(start_)
 #print(end_)
-print(a, b)
+#print(a, b)
 
-if a != b :
-    print(-1)
-if len(count_) >= 1 :
-    print("min", min(count_))
+#if a != b :
+#    print(-1)
+#if len(count_) >= 1 :
+#    print("min", min(count_))
